@@ -1,0 +1,58 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const myNFTs = []
+
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (_heroesUniverse, _movieName, _characterName, _gender, _superPower) {
+   const NFT = {
+      "hero": _heroesUniverse,
+      "movie": _movieName,
+      "character": _characterName,
+      "gender": _gender,
+      "power": _superPower
+   }
+   myNFTs.push(NFT);
+   console.log("Marvel: " + _heroesUniverse);
+
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+   for (let i = 0; i < myNFTs.length; i++) {
+      console.log("\nID: \t\t" + (i +1));
+      console.log("Heroes: \t\t" + myNFTs[i].hero);
+      console.log("Movie: \t\t" + myNFTs[i].movie);
+      console.log("Character: \t" + myNFTs[i].character);
+      console.log("Gender: \t\t" + myNFTs[i].gender);
+      console.log("Power: \t\t" + myNFTs[i].power);
+      console.log("-----------------------------------");
+      
+   }
+
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+   console.log("\nTotal NFTs: " + myNFTs.length);
+}
+
+// call your functions below this line
+mintNFT("Marvel", "Avengers", "Steve Roger", "Male", "Physical Strength");
+mintNFT("DC", "Justice League", "Bros Wayne", "Male", "None");
+mintNFT("Marvel", "Avengers", "Tony Stark", "Male", "None");
+mintNFT("DC", "Justice League", "Diana Prince", "Female", "Physical Strength & enhance senses");
+mintNFT("Marvel", "Doctor Strange", "Stephene Vincent Strange", "Male", "Sorcery");
+listNFTs();
+getTotalSupply();
